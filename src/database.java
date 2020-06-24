@@ -33,13 +33,12 @@ public class database {
 		loadDriver(dbdriver);
 		Connection con=  getConnection();
 		String result = "data enter successfully";
-		String sql = "insert into dbuser.m values(?,?)";
+		String sql = "insert into dbuser.m values(?,?)";//dbuser is database name and m is member object 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,m.getUname());
 			ps.setString(2,m.getPassword());
 			ps.executeUpdate();
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
