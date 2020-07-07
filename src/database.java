@@ -22,7 +22,7 @@ public class database {
 	public Connection getConnection() {
 		Connection con =null;
 		try {
-			con = DriverManager.getConnection(durl,dbname,dbpassword);
+			con = DriverManager.getConnection(durl,dbname,dbpassword);//Open a connection
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,12 +30,12 @@ public class database {
 		return con;
 	}
 	String insert(member m) {
-		loadDriver(dbdriver);
+		loadDriver(dbdriver); // Register JDBC driver
 		Connection con=  getConnection();
 		String result = "data enter successfully";
 		String sql = "insert into dbuser.m values(?,?)";//dbuser is database name and m is member object 
 		try {
-			PreparedStatement ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);//Execute a query
 			ps.setString(1,m.getUname());
 			ps.setString(2,m.getPassword());
 			ps.executeUpdate();
@@ -44,7 +44,7 @@ public class database {
 			e.printStackTrace();
 			result= "data not entered";
 		}
-		 
+		
 		return result;
 		
 	}

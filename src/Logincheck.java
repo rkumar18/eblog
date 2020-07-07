@@ -41,12 +41,12 @@ public class Logincheck extends HttpServlet {
 		//database db = new database();
 		//String result =  db.insert(m);
 		//System.out.println("1");
-		if(uname=="java") {
-			response.sendRedirect("home.html");
+		if(uname!="java" && password !="dcsa") {
+			response.sendRedirect("error.html");
 			//System.out.println("2");
 		}
 		else {
-			response.sendRedirect("error.html");
+			response.sendRedirect("home.html");
 			//System.out.println("3");
 		}
 		
